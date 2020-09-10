@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titleLabel = new System.Windows.Forms.Label();
             this.startbutton = new System.Windows.Forms.Button();
             this.clearLabel = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.hiLabel = new System.Windows.Forms.Label();
             this.TitleButton = new System.Windows.Forms.Button();
             this.gameOverLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // titleLabel
@@ -60,6 +62,7 @@
             this.startbutton.TabIndex = 1;
             this.startbutton.Text = "スタート";
             this.startbutton.UseVisualStyleBackColor = false;
+            this.startbutton.Click += new System.EventHandler(this.startbutton_Click);
             // 
             // clearLabel
             // 
@@ -135,12 +138,16 @@
             this.gameOverLabel.TabIndex = 8;
             this.gameOverLabel.Text = "Game Over";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TitleButton);
             this.Controls.Add(this.hiLabel);
             this.Controls.Add(this.remaLabel);
             this.Controls.Add(this.timeLabel);
@@ -149,6 +156,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.clearLabel);
             this.Controls.Add(this.gameOverLabel);
+            this.Controls.Add(this.TitleButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -167,6 +175,7 @@
         private System.Windows.Forms.Label hiLabel;
         private System.Windows.Forms.Button TitleButton;
         private System.Windows.Forms.Label gameOverLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
