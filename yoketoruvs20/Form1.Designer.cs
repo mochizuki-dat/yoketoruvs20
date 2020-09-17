@@ -80,11 +80,11 @@
             // 
             this.copyLabel.AutoSize = true;
             this.copyLabel.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.copyLabel.Location = new System.Drawing.Point(601, 410);
+            this.copyLabel.Location = new System.Drawing.Point(581, 421);
             this.copyLabel.Name = "copyLabel";
-            this.copyLabel.Size = new System.Drawing.Size(187, 20);
+            this.copyLabel.Size = new System.Drawing.Size(207, 20);
             this.copyLabel.TabIndex = 3;
-            this.copyLabel.Text = "Copyrigth Ⓒ 2020 20";
+            this.copyLabel.Text = "Copyrigth Ⓒ 2020 望月";
             // 
             // timeLabel
             // 
@@ -126,6 +126,7 @@
             this.TitleButton.TabIndex = 7;
             this.TitleButton.Text = "タイトルへ";
             this.TitleButton.UseVisualStyleBackColor = false;
+            this.TitleButton.Click += new System.EventHandler(this.TitleButton_Click);
             // 
             // gameOverLabel
             // 
