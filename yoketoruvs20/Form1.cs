@@ -88,6 +88,21 @@ namespace yoketoruvs20
                     nextState = State.Clear;
                 }
             }
+
+            if(currentState == State.Game)
+            {
+                UpdateGame();
+            }
+        }
+
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
+
+            chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
+            chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height / 2;
+
+
         }
 
         void initProc()
