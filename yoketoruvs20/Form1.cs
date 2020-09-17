@@ -30,7 +30,6 @@ namespace yoketoruvs20
 
         static Random rand = new Random();
         
-
         enum State
         {
             None = -1,  // 無効
@@ -41,6 +40,10 @@ namespace yoketoruvs20
         }
         State currentState = State.None;
         State nextState = State.Title;
+
+        const int SpeedMax = 20;
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
@@ -102,7 +105,7 @@ namespace yoketoruvs20
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
             chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height / 2;
 
-
+            
         }
 
         void initProc()
