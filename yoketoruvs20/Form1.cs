@@ -24,6 +24,7 @@ namespace yoketoruvs20
         const int EnemyIndex = PlayerIndex + PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
         const int TimeMax = 100;
+        const int TimeStart = 5;
 
         const string PlayerText = "(・ω・)";
         const string EnemyText = "◆";
@@ -75,6 +76,8 @@ namespace yoketoruvs20
                 }
                 chrs[i].Font = tempLabel.Font;
                 Controls.Add(chrs[i]);
+
+                chrs[i].Visible = false;
             }
         }
 
@@ -85,7 +88,7 @@ namespace yoketoruvs20
                 initProc();
             }
 
-            if (isDebug)
+            /*if (isDebug)
             {
                 if(GetAsyncKeyState((int)Keys.O) < 0)
                 {
@@ -95,7 +98,7 @@ namespace yoketoruvs20
                 {
                     nextState = State.Clear;
                 }
-            }
+            }*/
 
             if(currentState == State.Game)
             {
@@ -148,7 +151,10 @@ namespace yoketoruvs20
                     //if(chrs[i].text == EnemyText)
                     if (i<ItemIndex)
                     {
-                        nextState = State.Gameover;
+                        if(Time <= TimeMax - TimeStart)
+                        {
+                            nextState = State.Gameover;
+                        }
                     }
                     else
                     {
@@ -195,6 +201,7 @@ namespace yoketoruvs20
                     hiLabel.Visible = false;
                     Time = TimeMax;
 
+                    chrs[PlayerIndex].Visible = true;
                     for(int i = EnemyIndex; i < ChrMax; i++)
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
