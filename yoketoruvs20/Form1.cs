@@ -51,6 +51,7 @@ namespace yoketoruvs20
 
         int ItemCount = ItemMax;
         int Time = TimeMax;
+        int Hiscore = 0;
 
         public Form1()
         {
@@ -184,6 +185,7 @@ namespace yoketoruvs20
                     gameOverLabel.Visible = false;
                     TitleButton.Visible = false;
                     clearLabel.Visible = false;
+                    hiLabel.Text = "ハイスコア " + Hiscore;
                     break;
 
                 case State.Game:
@@ -216,6 +218,12 @@ namespace yoketoruvs20
                     clearLabel.Visible = true;
                     TitleButton.Visible = true;
                     hiLabel.Visible = true;
+
+                    if(Hiscore <= Time)
+                    {
+                        Hiscore = Time;
+                    }
+                    hiLabel.Text = "ハイスコア " + Hiscore;
                     break;
             }
         }
