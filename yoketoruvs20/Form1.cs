@@ -23,6 +23,7 @@ namespace yoketoruvs20
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
+        const int TimeMax = 100;
 
         const string PlayerText = "(・ω・)";
         const string EnemyText = "◆";
@@ -47,6 +48,8 @@ namespace yoketoruvs20
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
+
+        int ItemCount = ItemMax;
 
 
         public Form1()
@@ -128,6 +131,34 @@ namespace yoketoruvs20
                     vy[i] = -Math.Abs(vy[i]);
                 }
 
+                //当たり判定
+                if ((mp.X>= chrs[i].Left)&&
+                    (mp.X< chrs[i].Right)&&
+                    (mp.Y>=chrs[i].Top)&&
+                    (mp.Y<chrs[i].Bottom))
+                {
+                    //if(chrs[i].text == EnemyText)
+                    if (i<ItemIndex)
+                    {
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        if (chrs[i].Visible)
+                        {
+                            //アイテム処理
+                            ItemCount = ItemCount - 1;
+                            leftLabel.Text = "★:" + ItemCount;
+                        }
+
+                        chrs[i].Visible = false;
+
+                        if (ItemCount <= 0)
+                        {
+                            nextState = State.Clear;
+                        }
+                    }
+                }         
             }
         }
 
@@ -161,6 +192,10 @@ namespace yoketoruvs20
 
                         vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+
+                        chrs[i].Visible = true;
+                        ItemCount = ItemMax;
+                        leftLabel.Text = "★:" + ItemCount;
                     }
                     break;
 

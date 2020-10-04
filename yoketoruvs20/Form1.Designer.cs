@@ -34,7 +34,7 @@
             this.clearLabel = new System.Windows.Forms.Label();
             this.copyLabel = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
-            this.remaLabel = new System.Windows.Forms.Label();
+            this.leftLabel = new System.Windows.Forms.Label();
             this.hiLabel = new System.Windows.Forms.Label();
             this.TitleButton = new System.Windows.Forms.Button();
             this.gameOverLabel = new System.Windows.Forms.Label();
@@ -97,15 +97,15 @@
             this.timeLabel.TabIndex = 4;
             this.timeLabel.Text = "TIME 100";
             // 
-            // remaLabel
+            // leftLabel
             // 
-            this.remaLabel.AutoSize = true;
-            this.remaLabel.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.remaLabel.Location = new System.Drawing.Point(683, 9);
-            this.remaLabel.Name = "remaLabel";
-            this.remaLabel.Size = new System.Drawing.Size(105, 40);
-            this.remaLabel.TabIndex = 5;
-            this.remaLabel.Text = "★:10";
+            this.leftLabel.AutoSize = true;
+            this.leftLabel.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.leftLabel.Location = new System.Drawing.Point(683, 9);
+            this.leftLabel.Name = "leftLabel";
+            this.leftLabel.Size = new System.Drawing.Size(105, 40);
+            this.leftLabel.TabIndex = 5;
+            this.leftLabel.Text = "★:10";
             // 
             // hiLabel
             // 
@@ -163,7 +163,7 @@
             this.ClientSize = new System.Drawing.Size(800, 451);
             this.Controls.Add(this.tempLabel);
             this.Controls.Add(this.hiLabel);
-            this.Controls.Add(this.remaLabel);
+            this.Controls.Add(this.leftLabel);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.copyLabel);
             this.Controls.Add(this.startbutton);
@@ -185,7 +185,7 @@
         private System.Windows.Forms.Label clearLabel;
         private System.Windows.Forms.Label copyLabel;
         private System.Windows.Forms.Label timeLabel;
-        private System.Windows.Forms.Label remaLabel;
+        private System.Windows.Forms.Label leftLabel;
         private System.Windows.Forms.Label hiLabel;
         private System.Windows.Forms.Button TitleButton;
         private System.Windows.Forms.Label gameOverLabel;
