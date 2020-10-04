@@ -50,7 +50,7 @@ namespace yoketoruvs20
         public static extern short GetAsyncKeyState(int vKey);
 
         int ItemCount = ItemMax;
-
+        int Time = TimeMax;
 
         public Form1()
         {
@@ -109,6 +109,13 @@ namespace yoketoruvs20
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
             chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height / 2;
 
+            Time--;
+            timeLabel.Text = "TIME " + Time;
+            if(Time <= 0)
+            {
+                nextState = State.Gameover;
+            }
+
             for(int i = EnemyIndex; i < ChrMax; i++)
             {
                 chrs[i].Left += vx[i];
@@ -122,11 +129,11 @@ namespace yoketoruvs20
                 {
                     vy[i] = Math.Abs(vy[i]);
                 }
-                if (chrs[i].Right > ClientSize.Width - chrs[i].Width)
+                if (chrs[i].Right > ClientSize.Width )
                 {
                     vx[i] = -Math.Abs(vx[i]);
                 }
-                if (chrs[i].Bottom > ClientSize.Height - chrs[i].Height)
+                if (chrs[i].Bottom > ClientSize.Height )
                 {
                     vy[i] = -Math.Abs(vy[i]);
                 }
@@ -184,6 +191,7 @@ namespace yoketoruvs20
                     startbutton.Visible = false;
                     copyLabel.Visible = false;
                     hiLabel.Visible = false;
+                    Time = TimeMax;
 
                     for(int i = EnemyIndex; i < ChrMax; i++)
                     {
